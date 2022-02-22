@@ -4,9 +4,11 @@ import React from "react";
 import EventCalendar from "../components/EventCalendar";
 import EventForm from "../components/EventForm";
 import { useActions } from "../hooks/useActions";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 const Event: React.FC = () => {
   const [modalVisible, setModalVisible] = React.useState(false);
+  const { guests } = useTypedSelector((state) => state.event);
 
   const { fetchGuests } = useActions();
 
@@ -25,7 +27,7 @@ const Event: React.FC = () => {
         title='Добавить событие'
         visible={modalVisible}
         onCancel={() => setModalVisible(false)}>
-        <EventForm />
+        <EventForm guests={guests} />
       </Modal>
     </Layout>
   );

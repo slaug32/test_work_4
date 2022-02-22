@@ -44,7 +44,7 @@ export const actionsEvent = {
   }),
   fetchGuests: () => async (dispatch: AppDispatch) => {
     try {
-      const response = UsersService.getUsers();
+      const response = await UsersService.getUsers();
       dispatch(actionsEvent.setGuest(response.data));
     } catch (e) {
       console.log(e);
