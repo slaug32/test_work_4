@@ -16,6 +16,10 @@ function App() {
     }
   }, []);
 
+  const func =()=>{
+    console.log("start")
+  }
+
   return (
     <Layout className='App'>
       <Header />
